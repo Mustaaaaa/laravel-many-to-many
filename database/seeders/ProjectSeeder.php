@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Tag;
 use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,9 +19,9 @@ class ProjectSeeder extends Seeder
     public function run(Faker $faker): void
     {
 
-        $types = Type::all();
-        $ids = $types->pluck('id')->all();
-
+        $types_ids = Type::all()->pluck('id')->all();
+        // $types_ids = $types->pluck('id')->all();
+        $tag_ids = Tag::all()->pluck('id')->all();
         
         for ($i = 0; $i < 20; $i++) {
 
@@ -33,9 +34,13 @@ class ProjectSeeder extends Seeder
             $project->date_of_creation = $faker->date();
             $project->link = $faker->url();
             $project->created_by = $faker->name();
-            $project->type_id = $faker->optional()->randomElement($ids);
+            $project->type_id = $faker->optional()->randomElement($types_ids);
 
             $project->save();
+
+            $random_tag_ids = $faker->randomElements($tag_ids, null);
+
+            $project->tags()->attach($random_tag_ids);
         }
     }
 }

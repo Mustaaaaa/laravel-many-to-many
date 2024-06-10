@@ -5,7 +5,7 @@
     <div class="container mt-5">
         <div class="card m-2">
             <div class="card-header">
-            Project Details
+                Project Details
             </div>
             <div class="card-body text-center">
                 <h5 class="card-title">Title:</h5>
@@ -25,6 +25,12 @@
 
                 <h5 class="card-title">Type:</h5>
                 <p class="card-text">{{ $project->type ? $project->type->name : 'Not defined' }}</p>
+                <div>
+                    <h5 class="card-title mt-3">Programming languages:</h5>
+                    @foreach ($project->tags as $tag)
+                    <p>{{$tag->name}}</p>
+                    @endforeach
+                </div>
                 <div class="row justify-content-center">
                     @auth
                     <a href="{{ route('projects.edit',$project) }}" class="btn btn-success m-2 col-1">Edit</a>
@@ -34,7 +40,7 @@
                         <button class="btn btn-danger m-2">Delete</button>
                     </form>
                     @endauth
-                    <a href="{{ route('projects.index')}}" class="btn btn-primary m-2 col-1"><---</a>
+                    <a href="{{ route('projects.index')}}" class="btn btn-primary m-2 col-1"><--- </a>
                 </div>
 
                 @if ($project->type)
