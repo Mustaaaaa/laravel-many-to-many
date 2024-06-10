@@ -27,8 +27,8 @@
                 <p class="card-text">{{ $project->type ? $project->type->name : 'Not defined' }}</p>
                 <div>
                     <h5 class="card-title mt-3">Programming languages:</h5>
-                    @foreach ($project->tags as $tag)
-                    <p>{{$tag->name}}</p>
+                    @foreach ($project->technologies as $technology)
+                    <p>{{$technology->name}}</p>
                     @endforeach
                 </div>
                 <div class="row justify-content-center">
