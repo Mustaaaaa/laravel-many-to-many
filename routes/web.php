@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
-
+use App\Http\Controllers\TechnologyController;
+use App\Http\Controllers\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 Route::resource('projects',ProjectController::class);
+Route::resource('types',TypeController::class);
+Route::resource('technologies',TechnologyController::class);
 Route::get('/admin', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

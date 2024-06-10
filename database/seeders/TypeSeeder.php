@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Ramsey\Uuid\Generator\NameGeneratorFactory;
 
 class TypeSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class TypeSeeder extends Seeder
 
             $new_type->name = $type_name;
             $new_type->slug = Str::slug($type_name);
+            $new_type->created_by = '';
 
             $new_type->save();
         }
