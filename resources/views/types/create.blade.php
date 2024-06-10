@@ -1,10 +1,12 @@
+@auth
 @extends('layouts.app')
+
 
 @section('content')
 <main>
     <div class="container mt-5">
         <div>
-            <h1><strong>Enter the new project details</strong></h1>
+            <h1><strong>Enter the new type details</strong></h1>
         </div>
         <form action="{{route('types.store')}}" method="POST">
             @csrf
@@ -33,3 +35,4 @@
     </div>
 </main>
 @endsection
+@endauth

@@ -1,4 +1,6 @@
+@auth
 @extends('layouts.app')
+
 
 @section('content')
 <main>
@@ -24,14 +26,12 @@
                 <p class="card-text">{{ $type->created_by}}</p>
 
                 <div class="row justify-content-center">
-                    @auth
                     <a href="{{ route('types.edit',$type) }}" class="btn btn-success m-2 col-1">Edit</a>
                     <form action="{{route('types.destroy', $type)}}" method="POST" class="col-1">
                         @method('DELETE')
                         @csrf
                         <button class="btn btn-danger m-2">Delete</button>
                     </form>
-                    @endauth
                     <a href="{{ route('types.index')}}" class="btn btn-primary m-2 col-1"><--- </a>
                 </div>
             </div>
@@ -39,3 +39,4 @@
     </div>
 </main>
 @endsection
+@endauth

@@ -24,6 +24,7 @@ class TechnologySeeder extends Seeder
 
             $new_technology->name = $technology_name;
             $new_technology->slug = Str::slug($technology_name);
+            $new_technology->created_by = '';
 
             $new_technology->save();
         }

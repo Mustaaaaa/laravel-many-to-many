@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand p-3" href="#">Laravel-auth</a>
+        <a class="navbar-brand p-3" href="{{route('welcome')}}">Laravel-auth</a>
  
         <div class="collapse navbar-collapse justify-content-between m-1" id="navbarNav">
             <ul class="navbar-nav ml-auto">
@@ -10,12 +10,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('projects.index')}}">Projects</a>
                 </li>
+                @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('types.index')}}">Types</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('technologies.index')}}">Technologies</a>
                 </li>
+                @endauth
             </ul>
 
             <!-- Right Side Of Navbar -->

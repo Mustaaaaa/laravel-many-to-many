@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name',100);
             $table->string('slug', 102);
+            $table->string('created_by', 100);
+
             $table->timestamps();
         });
     }

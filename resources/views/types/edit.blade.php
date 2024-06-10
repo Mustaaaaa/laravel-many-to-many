@@ -1,4 +1,6 @@
+@auth
 @extends('layouts.app')
+
 
 @section('content')
 <main>
@@ -35,3 +37,4 @@
     </div>
 </main>
 @endsection
+@endauth
